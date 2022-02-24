@@ -2,13 +2,22 @@ html {
     font-size: 62.5%;
 }
 
-.container {
-    width: 100%;
+body {
+    overflow: hidden;
+    background: black;
 }
 
 .controller {
     position: absolute;
-    width: 50rem;
-    transform: translateX(-50%);
+    margin-top: 20%;
+    transform: translateX(-50%); /* used to center cursor with horizontal center of element*/
+    
+    /* default position on page creation */
+    left: 50%;
+    top: 25%;
+    
     z-index: 1;
+    
+    height: 40rem;
+    width: 50rem;
 }
