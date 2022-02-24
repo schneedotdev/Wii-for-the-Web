@@ -1,6 +1,14 @@
 let windowWidth = window.innerWidth;
 let windowHeight = window.innerHeight;
 
+/**
+ * when the window is resized, windowWidth and windowHeight will get reassigned when the cursor is moved.
+ */
+window.onresize = function() {
+    windowWidth = window.innerWidth;
+    windowHeight = window.innerHeight;
+}
+
 document.addEventListener('mousemove', (e) => {
     let x = e.pageX;
     let y = e.pageY;
@@ -59,9 +67,37 @@ function tiltImage(y) {
  * @param x: x-axis value of the cursor in reference to the window width
  */
 function rotateImage(x) {
-    let arcscale = Math.round((x - (windowWidth / 2)) / 15);
-    // let imageOffset = Math.round((x / windowWidth));
-    
-    document.querySelector('.controller').style.rotate = `${arcscale}deg`;
-    // document.querySelector('.controller').style.transform = `${imageOffset}%`;
+    let halfWidth = windowWidth / 2;
+    let arcscale = (x - halfWidth) / 69;
+    let multiplier = 10; // Multiplier for arcscale. Allows for more rotation given certain bounds (default value is for outer bounds)
+    let imageOffset; // determines the reference point between the cursor and the center of the image element
+
+    // if (x > (windowWidth * 0.4) && x < (windowWidth * 0.6)){
+    //     imageOffset = -50;
+    // } else if (x < (windowWidth * 0.4)) {
+    //     imageOffset = -40;
+    // } else {
+    //     imageOffset = -60;
+    // }
+
+    // if (x >= windowWidth * 0.4 && x <= windowWidth * 0.6) {
+    //     document.querySelector('.controller').style.transform = `translate(${imageOffset}%) rotate(${arcscale}deg)`;
+    // } else if (x >= windowWidth * 0.35 && x <= windowWidth * 0.65) {
+    //     document.querySelector('.controller').style.transform = `translate(${imageOffset}%) rotate(${arcscale * 1.5}deg)`;
+    // } else if (x >= windowWidth * 0.3 && x <= windowWidth * 0.7) {
+    //     document.querySelector('.controller').style.transform = `translate(${imageOffset}%) rotate(${arcscale * 2}deg)`;
+    // } else {
+    //     document.querySelector('.controller').style.transform = `translate(${imageOffset}%) rotate(${arcscale * 2.5}deg)`;
+    // }
+
+    if (x >= windowWidth * 0.3 && x <= windowWidth * 0.7) {
+        imageOffset = ((halfWidth - x) / (halfWidth * 2)) * 100 - 50;
+        muliplier = 2.5;
+    } else if (x <= windowWidth * 0.3) {
+        imageOffset = -30;
+    } else {
+        imageOffset = -70;
+    }
+
+    document.querySelector('.controller').style.transform = `translate(${imageOffset}%) rotate(${arcscale * muliplier}deg)`;
 }
