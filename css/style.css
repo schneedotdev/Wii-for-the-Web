@@ -1,0 +1,14 @@
+html {
+    font-size: 62.5%;
+}
+
+.container {
+    width: 100%;
+}
+
+.controller {
+    position: absolute;
+    width: 50rem;
+    transform: translateX(-50%);
+    z-index: 1;
+}
