@@ -4,7 +4,7 @@ html {
 
 body {
     overflow: hidden;
-    background: black;
+    /* background: black; */
 }
 
 .controller {
@@ -16,7 +16,7 @@ body {
     left: 50%;
     top: 25%;
     
-    z-index: 1;
+    z-index: 5;
     
     height: 40rem;
     width: 50rem;
@@ -25,3 +25,14 @@ body {
 .tv-container {
     text-align: center;
 }
+
+.tv {
+    width: 100%;
+    height: auto;
+}
+
+/* .screen {
+    background: red;
+    padding: 2rem;
+    z-index: 2;
+} */
