@@ -1,10 +1,44 @@
+/*
+==================== Base Styles ====================
+*/
+
 html {
     font-size: 62.5%;
 }
 
 body {
     overflow: hidden;
-    /* background: black; */
+}
+
+/*
+==================== Layout Styles ====================
+*/
+
+
+/*
+==================== Additional Styles ====================
+*/
+
+.background {
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, 0);
+    z-index: 1;
+}
+
+.screen {
+    position: absolute;
+    top: 9.5%;
+    left: 50.3%;
+    transform: translate(-50%, 0);
+
+    z-index: 2;
+
+    /* background: red; */
+    padding: 1.8rem 1.2rem 0 0;
+
+    width: 50rem;
+    height: 27rem;
 }
 
 .controller {
@@ -18,21 +52,9 @@ body {
     
     z-index: 5;
     
-    height: 40rem;
-    width: 50rem;
-}
+    height: 50rem;
+    width: 55rem;
 
-.tv-container {
-    text-align: center;
+    min-height: 35rem;
+    max-height: 50rem;
 }
-
-.tv {
-    width: 100%;
-    height: auto;
-}
-
-/* .screen {
-    background: red;
-    padding: 2rem;
-    z-index: 2;
-} */

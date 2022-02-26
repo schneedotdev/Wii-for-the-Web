@@ -41,21 +41,9 @@ function moveImage(x, y) {
  * @param y: y-axis value of the cursor in reference to the window height
  */
 function tiltImage(y) {
-    let twentiethOfScreenHeight = Math.round(window.innerHeight / 20);
-
-    if (y < twentiethOfScreenHeight * 5) {
-        document.querySelector('.controller').style.height = "35rem";
-    } else if (y < twentiethOfScreenHeight * 6) {
-        document.querySelector('.controller').style.height = "40rem";
-    } else if (y < twentiethOfScreenHeight * 7) {
-        document.querySelector('.controller').style.height = "45rem";
-    } else if (y < twentiethOfScreenHeight * 8) {
-        document.querySelector('.controller').style.height = "50rem";
-    } else if (y < twentiethOfScreenHeight * 9) {
-        document.querySelector('.controller').style.height = "55rem";
-    } else {
-        document.querySelector('.controller').style.height = "60rem";
-    }
+    // For dynamic height
+    let adjustment = 35 + (y / windowHeight * 40);
+    document.querySelector('.controller').style.height = `${adjustment}rem`;
 }
 
 /**
