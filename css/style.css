@@ -9,7 +9,7 @@ body {
 
 .controller {
     position: absolute;
-    margin-top: 20%;
+    margin-top: 20%; /*possibly change to 15%*/
     transform: translateX(-50%); /* used to center cursor with horizontal center of element*/
     
     /* default position on page creation */
@@ -20,4 +20,8 @@ body {
     
     height: 40rem;
     width: 50rem;
+}
+
+.tv-container {
+    text-align: center;
 }

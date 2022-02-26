@@ -1,9 +1,7 @@
 let windowWidth = window.innerWidth;
 let windowHeight = window.innerHeight;
 
-/**
- * when the window is resized, windowWidth and windowHeight will get reassigned when the cursor is moved.
- */
+// When the window is resized, windowWidth and windowHeight will get reassigned when the mousemove event happens. This allows the website to be responsive to browser width changes.
 window.onresize = function() {
     windowWidth = window.innerWidth;
     windowHeight = window.innerHeight;
@@ -18,7 +16,6 @@ document.addEventListener('mousemove', (e) => {
     tiltImage(y);
     rotateImage(x);
 });
-
 
 /**
  * name: moveImage
@@ -44,60 +41,46 @@ function moveImage(x, y) {
  * @param y: y-axis value of the cursor in reference to the window height
  */
 function tiltImage(y) {
-    // let twentiethOfScreenHeight = Math.round(window.innerHeight / 20);
+    let twentiethOfScreenHeight = Math.round(window.innerHeight / 20);
 
-    // if (y < twentiethOfScreenHeight * 5) {
-    //     document.querySelector('.controller').style.height = "35rem";
-    // } else if (y < twentiethOfScreenHeight * 6) {
-    //     document.querySelector('.controller').style.height = "40rem";
-    // } else if (y < twentiethOfScreenHeight * 7) {
-    //     document.querySelector('.controller').style.height = "45rem";
-    // } else if (y < twentiethOfScreenHeight * 8) {
-    //     document.querySelector('.controller').style.height = "50rem";
-    // } else if (y < twentiethOfScreenHeight * 9) {
-    //     document.querySelector('.controller').style.height = "55rem";
-    // } else {
-    //     document.querySelector('.controller').style.height = "60rem";
-    // }
+    if (y < twentiethOfScreenHeight * 5) {
+        document.querySelector('.controller').style.height = "35rem";
+    } else if (y < twentiethOfScreenHeight * 6) {
+        document.querySelector('.controller').style.height = "40rem";
+    } else if (y < twentiethOfScreenHeight * 7) {
+        document.querySelector('.controller').style.height = "45rem";
+    } else if (y < twentiethOfScreenHeight * 8) {
+        document.querySelector('.controller').style.height = "50rem";
+    } else if (y < twentiethOfScreenHeight * 9) {
+        document.querySelector('.controller').style.height = "55rem";
+    } else {
+        document.querySelector('.controller').style.height = "60rem";
+    }
 }
 
 /**
  * name: rotateImage
  * description: rotates the image element with a class of controller based on the value of the cursors horizontal positioning. To simmulate pointing a controller left and right.
  * @param x: x-axis value of the cursor in reference to the window width
+ * 
  */
 function rotateImage(x) {
     let halfWidth = windowWidth / 2;
-    let arcscale = (x - halfWidth) / 69;
-    let multiplier = 10; // Multiplier for arcscale. Allows for more rotation given certain bounds (default value is for outer bounds)
-    let imageOffset; // determines the reference point between the cursor and the center of the image element
 
-    // if (x > (windowWidth * 0.4) && x < (windowWidth * 0.6)){
-    //     imageOffset = -50;
-    // } else if (x < (windowWidth * 0.4)) {
-    //     imageOffset = -40;
-    // } else {
-    //     imageOffset = -60;
-    // }
-
-    // if (x >= windowWidth * 0.4 && x <= windowWidth * 0.6) {
-    //     document.querySelector('.controller').style.transform = `translate(${imageOffset}%) rotate(${arcscale}deg)`;
-    // } else if (x >= windowWidth * 0.35 && x <= windowWidth * 0.65) {
-    //     document.querySelector('.controller').style.transform = `translate(${imageOffset}%) rotate(${arcscale * 1.5}deg)`;
-    // } else if (x >= windowWidth * 0.3 && x <= windowWidth * 0.7) {
-    //     document.querySelector('.controller').style.transform = `translate(${imageOffset}%) rotate(${arcscale * 2}deg)`;
-    // } else {
-    //     document.querySelector('.controller').style.transform = `translate(${imageOffset}%) rotate(${arcscale * 2.5}deg)`;
-    // }
+    let rotation = (x - halfWidth) / 69; // used to determine the amount of rotation to be applied to the image element with a class of controller
+    let multiplier = 2.5; // Multiplier for the rotation variable. Allows for more rotation given certain bounds, the rotation amount increases as the cursor moves toward the side edges of the browser window
+    
+    let offset; // determines the reference point between the cursor and the center of the image element
 
     if (x >= windowWidth * 0.3 && x <= windowWidth * 0.7) {
-        imageOffset = ((halfWidth - x) / (halfWidth * 2)) * 100 - 50;
-        muliplier = 2.5;
+        offset = ((halfWidth - x) / windowWidth) * 100 - 50; // the value will equate to some value in relation to the x position on the page within the range of 0-100. This value will later be used as a percentage for transform: translate();
     } else if (x <= windowWidth * 0.3) {
-        imageOffset = -30;
+        offset = -30;
+        multiplier += Math.abs((halfWidth - x) / halfWidth * 3); // the value will equate to some value in relation to the x positions toward the side edges of the screen. As the cursor moves toward the edges, this multiplier will increase and eventually be multiplied with the rotation variable to increase image rotation
     } else {
-        imageOffset = -70;
+        offset = -70;
+        multiplier += Math.abs((halfWidth - x) / halfWidth * 3);
     }
 
-    document.querySelector('.controller').style.transform = `translate(${imageOffset}%) rotate(${arcscale * muliplier}deg)`;
+    document.querySelector('.controller').style.transform = `translate(${offset}%) rotate(${rotation * multiplier}deg)`;
 }
