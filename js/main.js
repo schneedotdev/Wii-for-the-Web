@@ -7,6 +7,18 @@ window.onresize = function() {
     windowHeight = window.innerHeight;
 }
 
+document.onkeypress = function (e) {
+    e = e || window.event;
+
+    if (e.key === 'a') {
+        const buttonPress = new Audio('');
+        buttonPress.play();
+
+        document.querySelector('.warning').style.display = 'none';
+        document.querySelector('.menu').style.display = 'block';
+    }
+};
+
 document.addEventListener('mousemove', (e) => {
     let x = e.pageX;
     let y = e.pageY;

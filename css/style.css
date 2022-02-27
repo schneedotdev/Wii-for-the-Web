@@ -8,38 +8,135 @@ html {
 
 body {
     overflow: hidden;
+    background: url("../assets/images/tv-background.png") no-repeat center center fixed;
+    font-family: 'Roboto', sans-serif;
+}
+
+a {
+    color: dodgerblue;
 }
 
 /*
 ==================== Layout Styles ====================
 */
 
+.container {
+    height: 100%;
+    width: 100%;
+    padding-left: .5rem;
+}
+
+.screen {
+    margin: 6.8rem auto 0 auto;
+
+    background: black;
+    color: white;
+    padding: 2rem 1rem .5rem 1rem;
+
+    width: 50rem;
+    height: 27rem;
+}
 
 /*
 ==================== Additional Styles ====================
 */
 
-.background {
-    position: absolute;
-    left: 50%;
-    transform: translate(-50%, 0);
-    z-index: 1;
+
+/*
+------------------- Warning Screen -------------------
+*/
+
+.warning {
+    text-align: center;
 }
 
-.screen {
-    position: absolute;
-    top: 9.5%;
-    left: 50.3%;
-    transform: translate(-50%, 0);
-
-    z-index: 2;
-
-    /* background: red; */
-    padding: 1.8rem 1.2rem 0 0;
-
-    width: 50rem;
-    height: 27rem;
+.warning-title,
+.warning-info,
+.press-to-continue {
+    letter-spacing: .1rem;
 }
+
+.warning-title {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 700;
+    font-size: 2.3rem;
+    margin-top: 1rem;
+}
+
+.warning-icon {
+    width: 2.5rem;
+    height: 2.5rem;
+    margin-right: .2rem;
+}
+
+.warning-info {
+    font-weight: 500;
+    font-size: 1.7rem;
+    line-height: 1.7;
+}
+
+.also,
+.website {
+    display: block;
+    font-weight: 400;
+}
+
+.also {
+    font-size: 1.4rem;
+    margin: 1rem 0 1rem 0;
+}
+
+.website {
+    font-size: 1.7rem;
+}
+
+.press-to-continue {
+    font-weight: 500;
+    font-size: 1.7rem;
+    margin-top: 1.8rem;
+}
+
+.a-button {
+    display: inline-block;
+    width: 2rem;
+    height: 2rem;
+    border: 2px solid white;
+    border-radius: 50%;
+    margin: 0 2px;
+}
+
+.blink {
+    animation: blinker 1s linear infinite;
+}
+
+@keyframes blinker{
+    50% {
+        opacity: 0;
+    }
+}
+
+/*
+------------------- Menu -------------------
+*/
+
+.menu {
+    display: none;
+    background: white;
+    text-align: center;
+}
+
+.menu-title {
+    font-weight: 400;
+    color: #2fc1d9;
+}
+
+
+
+/*
+------------------- Controller -------------------
+*/
 
 .controller {
     position: absolute;
