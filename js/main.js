@@ -11,9 +11,10 @@ document.onkeypress = function (e) {
     e = e || window.event;
 
     if (e.key === 'a') {
-        const buttonPress = new Audio('');
+        const buttonPress = new Audio('./assets/sounds/a-press.wav');
         buttonPress.play();
-
+        
+        document.querySelector('.menu-music').play();
         document.querySelector('.warning').style.display = 'none';
         document.querySelector('.menu').style.display = 'block';
     }
