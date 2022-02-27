@@ -4,16 +4,24 @@
 
 html {
     font-size: 62.5%;
+    cursor: none;
 }
 
 body {
     overflow: hidden;
-    background: url("../assets/images/tv-background.png") no-repeat center 0 fixed;
+    /* background: url("../assets/images/tv-background.png") no-repeat center 0 fixed; */
+    background: url("../assets/images/updatedbackground.png") no-repeat center 0 fixed;
     font-family: 'Roboto', sans-serif;
+}
+
+.screen,
+a:hover {
+    cursor: url('../assets/misc/player-one.cur'), auto;
 }
 
 a {
     color: dodgerblue;
+    text-decoration: none;
 }
 
 ul {
@@ -34,13 +42,10 @@ ul {
 
 .screen {
     margin: 6.8rem auto 0 auto;
-
-    background: black;
     color: white;
-    padding: 2rem 1rem .5rem 1rem;
 
-    width: 50rem;
-    height: 27rem;
+    width: 52.3rem;
+    height: 27.3rem;
 }
 
 /*
@@ -53,7 +58,9 @@ ul {
 */
 
 .warning {
+    background: black;
     text-align: center;
+    padding: 2rem 1rem 3.3rem 1rem;
 }
 
 .warning-title,
@@ -143,6 +150,7 @@ ul {
     flex-direction: column;
     justify-content: center;
     background: white;
+    padding: 3rem 3.2rem 0 3.2rem;
 }
 
 .row-one-list,
@@ -150,22 +158,32 @@ ul {
 .row-three-list {
     display: flex;
     justify-content: space-evenly;
-    background: white;
-    margin-bottom: .5rem;
-    padding: 0 2.5rem;
+    margin-bottom: .8rem;
 }
 
 .app-container {
-    padding: 2.5rem 3rem;
-    background: #b4b4b4;
-    color: #949494;
-    border: 1px solid #b4b4b4;
-    border-radius: 10% 10% 10% 10%;
+    background: #d8d8d8;
+    color: black;
+    border: 2px solid #b4b4b4;
+    border-radius: 8%;
+
+    width: 10rem;
+    height: 5rem;
+}
+
+.app-container:hover {
+    border-color: #2fc1d9;
 }
 
 /*
 - - - - - - - - - - Menu Bar - - - - - - - - - -
 */
+
+.menu-bar {
+    height: 7rem;
+    width: 52.3rem;
+    background: #b4b4b4;
+}
 
 .menu-title {
     font-weight: 400;

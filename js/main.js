@@ -10,13 +10,14 @@ window.onresize = function() {
 document.onkeypress = function (e) {
     e = e || window.event;
 
-    if (e.key === 'a') {
+    if (e.key.toLowerCase() === 'a') {
         const buttonPress = new Audio('./assets/sounds/a-press.wav');
         buttonPress.play();
         
         document.querySelector('.menu-music').play();
         document.querySelector('.warning').style.display = 'none';
         document.querySelector('.menu').style.display = 'block';
+        document.querySelector('.screen').style.padding = '0';
     }
 };
 
