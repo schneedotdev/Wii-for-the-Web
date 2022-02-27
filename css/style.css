@@ -8,12 +8,18 @@ html {
 
 body {
     overflow: hidden;
-    background: url("../assets/images/tv-background.png") no-repeat center center fixed;
+    background: url("../assets/images/tv-background.png") no-repeat center 0 fixed;
     font-family: 'Roboto', sans-serif;
 }
 
 a {
     color: dodgerblue;
+}
+
+ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
 }
 
 /*
@@ -126,6 +132,40 @@ a {
     background: white;
     text-align: center;
 }
+
+
+/*
+- - - - - - - - - - Apps - - - - - - - - - -
+*/
+
+.app-list {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background: white;
+}
+
+.row-one-list,
+.row-two-list,
+.row-three-list {
+    display: flex;
+    justify-content: space-evenly;
+    background: white;
+    margin-bottom: .5rem;
+    padding: 0 2.5rem;
+}
+
+.app-container {
+    padding: 2.5rem 3rem;
+    background: #b4b4b4;
+    color: #949494;
+    border: 1px solid #b4b4b4;
+    border-radius: 10% 10% 10% 10%;
+}
+
+/*
+- - - - - - - - - - Menu Bar - - - - - - - - - -
+*/
 
 .menu-title {
     font-weight: 400;
