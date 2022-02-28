@@ -24,18 +24,7 @@ document.onkeypress = function (e) {
     }
 };
 
-// Hover sound on mouseover of each app in the apps list
-const apps = document.querySelectorAll('.app-link');
-apps.forEach(app => {
-    app.addEventListener('mouseover', hover);
-});
-
-function hover() {
-    const hover = new Audio('./assets/sounds/hover.mp3');
-    hover.play();
-}
-
-// 
+// Tracks cursor coordinates, calls movement functions which are used to manipulate the controller element
 document.addEventListener('mousemove', (e) => {
     let x = e.pageX;
     let y = e.pageY;
