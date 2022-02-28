@@ -7,6 +7,19 @@ window.onresize = function() {
     windowHeight = window.innerHeight;
 }
 
+
+// Hover Sound
+const apps = document.querySelectorAll('.app-link');
+apps.forEach(app => {
+    app.addEventListener('mouseover', hover)
+});
+
+function hover() {
+    const hover = new Audio('./assets/sounds/hover.mp3');
+    hover.play();
+}
+
+// A button press on warning screen
 document.onkeypress = function (e) {
     e = e || window.event;
 
