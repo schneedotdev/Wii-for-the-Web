@@ -7,26 +7,16 @@ window.onresize = function() {
     windowHeight = window.innerHeight;
 }
 
-
-// Hover Sound
-const apps = document.querySelectorAll('.app-link');
-apps.forEach(app => {
-    app.addEventListener('mouseover', hover)
-});
-
-function hover() {
-    const hover = new Audio('./assets/sounds/hover.mp3');
-    hover.play();
-}
-
-// A button press on warning screen
+// action for "A button" keypress when on the warning screen
 document.onkeypress = function (e) {
     e = e || window.event;
 
     if (e.key.toLowerCase() === 'a') {
+        // keypress sound
         const buttonPress = new Audio('./assets/sounds/a-press.wav');
         buttonPress.play();
         
+        // hide warning screen, display menu screen, play menu music, reset screen padding
         document.querySelector('.menu-music').play();
         document.querySelector('.warning').style.display = 'none';
         document.querySelector('.menu').style.display = 'block';
@@ -34,6 +24,18 @@ document.onkeypress = function (e) {
     }
 };
 
+// Hover sound on mouseover of each app in the apps list
+const apps = document.querySelectorAll('.app-link');
+apps.forEach(app => {
+    app.addEventListener('mouseover', hover);
+});
+
+function hover() {
+    const hover = new Audio('./assets/sounds/hover.mp3');
+    hover.play();
+}
+
+// 
 document.addEventListener('mousemove', (e) => {
     let x = e.pageX;
     let y = e.pageY;
