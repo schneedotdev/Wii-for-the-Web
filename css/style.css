@@ -39,7 +39,7 @@ ul {
 }
 
 .screen {
-    margin: 6.8rem auto 0 auto;
+    margin: 6.7rem auto 0 auto;
     color: white;
 
     width: 52.3rem;
@@ -134,21 +134,32 @@ ul {
 
 .menu {
     display: none;
-    background: white;
+    /* background: white; */
     text-align: center;
 }
 
+.menu-background {
+    width: 52.5rem;
+    height: 30rem;
+}
+
+.menu-ui {
+    position: absolute;
+    top: 0%;
+    left: 50%;
+    transform: translate(-48.5%);
+}
 
 /*
 - - - - - - - - - - Apps - - - - - - - - - -
 */
 
+
 .app-list {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    background: white;
-    padding: 3rem 3.2rem 0 3.2rem;
+    padding-top: 9rem;
 }
 
 .row-one-list,
@@ -156,20 +167,19 @@ ul {
 .row-three-list {
     display: flex;
     justify-content: space-evenly;
-    margin-bottom: .8rem;
+    margin-bottom: .2rem;
 }
 
-.app-container {
-    background: #d8d8d8;
-    color: black;
+.app-icon {
+    width: 10.5rem;
+    height: 5.5rem;
     border: 2px solid #b4b4b4;
-    border-radius: 8%;
-
-    width: 10rem;
-    height: 5rem;
+    border-radius: 1rem;
+    margin: 0 .2rem;
 }
 
-.app-container:hover {
+.app-icon:hover {
+    border: 2px solid #b4b4b4;
     border-color: #2fc1d9;
 }
 
@@ -177,15 +187,69 @@ ul {
 - - - - - - - - - - Menu Bar - - - - - - - - - -
 */
 
-.menu-bar {
-    height: 7rem;
-    width: 52.3rem;
-    background: #b4b4b4;
-}
-
 .menu-title {
+    position: absolute;
+    top: 72%;
+    left: 49.5%;
+    transform: translate(-50%);
+
+    /* margin-top: .8rem; */
+    font-size: 2rem;
     font-weight: 400;
     color: #2fc1d9;
+    animation: disappear 4s;
+    animation-fill-mode: forwards;
+}
+
+@keyframes disappear{
+  0%{
+    opacity: 1;
+  }
+  50%{
+    opacity: 1;
+  }
+  100%{
+    opacity: 0;
+  }
+}
+
+.time {
+    font-family: 'Digital Numbers', sans-serif;
+    margin: .7rem 0 0 0;
+    color: #a3a3a3;
+    font-size: 2rem;
+    /* font-weight: 400; */
+    opacity: 0;
+    animation: appear 4s;
+    animation-fill-mode: forwards;
+    padding-left: 2rem;
+}
+
+.colon,
+.am-pm {
+    font-family: sans-serif;
+}
+
+.am-pm {
+    font-size: 1rem;
+}
+
+@keyframes appear{
+  0%{
+    opacity: 0;
+  }
+  50%{
+    opacity: 0;
+  }
+  100%{
+    opacity: 1;
+  }
+}
+
+.date {
+    font-weight: 400;
+    font-size: 2rem;
+    color: #7e7e7e;
 }
 
 
