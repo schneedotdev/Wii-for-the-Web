@@ -4,13 +4,11 @@
 
 html {
     font-size: 62.5%;
-    cursor: none;
 }
 
 body {
     overflow: hidden;
-    /* background: url("../assets/images/tv-background.png") no-repeat center 0 fixed; */
-    background: url("../assets/images/updatedbackground.png") no-repeat center 0 fixed;
+    background: url("../assets/images/room.png") no-repeat center 0 fixed;
     font-family: 'Roboto', sans-serif;
 }
 
